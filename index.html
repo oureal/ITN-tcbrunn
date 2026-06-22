@@ -5,60 +5,52 @@
   <title>TC Brunn ITN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.5;
-    }
-    h1 { margin-bottom: 2rem; }
+    body { font-family: system-ui, sans-serif; max-width: 650px; margin: 0 auto; padding: 2rem; line-height: 1.5; }
     section { margin-bottom: 2.5rem; }
-    a.button {
-      display: block;
-      margin: 0.8rem 0;
-      padding: 1rem 1.2rem;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      text-decoration: none;
-      color: black;
-      font-size: 1.2rem;
-      background: #f6f6f6;
+    a.button, button {
+      display: block; margin: .8rem 0; padding: 1rem 1.2rem;
+      border: 1px solid #ccc; border-radius: 12px;
+      text-decoration: none; color: black; font-size: 1.1rem;
+      background: #f6f6f6; width: 100%; text-align: left;
+    }
+    code {
+      display: block; white-space: nowrap; overflow-x: auto;
+      background: #f3f3f3; padding: 1rem; border-radius: 8px;
+      font-size: .9rem;
     }
   </style>
 </head>
 <body>
 
-  <h1>TC Brunn ITN-Rangliste</h1>
+<h1>TC Brunn ITN-Rangliste</h1>
 
-  <section>
-    <h2>Windows</h2>
-    <p>
-      Unter Windows funktioniert der Aufruf mit Tampermonkey automatisch.
-    </p>
-    <a class="button" href="https://www.noetv.at/rangliste/itn#tcbrunn">
-      Windows
-    </a>
-  </section>
+<section>
+  <h2>Windows</h2>
+  <p>Unter Windows funktioniert der Aufruf mit Tampermonkey automatisch.</p>
+  <a class="button" href="https://www.noetv.at/rangliste/itn#tcbrunn">Windows</a>
+</section>
 
-  <section>
-    <h2>Android</h2>
-    <p>
-      Unter Android Chrome sind zwei Schritte nötig.
-    </p>
+<section>
+  <h2>Android</h2>
+  <p>Unter Android Chrome sind zwei Schritte nötig.</p>
 
-    <a class="button" href="https://www.noetv.at/rangliste/itn">
-      1. NÖTV ITN-Rangliste öffnen
-    </a>
+  <a class="button" href="https://www.noetv.at/rangliste/itn">
+    1. NÖTV ITN-Rangliste öffnen
+  </a>
 
-    <a class="button" href="javascript:(()=>{const q='TC Brunn/Geb';const vis=e=>!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length);const inputs=[...document.querySelectorAll('input')].filter(vis);const el=inputs.find(i=>/such|search/i.test((i.placeholder||'')+(i.name||'')+(i.id||'')+(i.className||'')))||inputs[0];if(!el){alert('Suchfeld nicht gefunden');return}el.focus();el.value=q;['input','change','keyup'].forEach(t=>el.dispatchEvent(new Event(t,{bubbles:true})));el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true}));el.dispatchEvent(new KeyboardEvent('keyup',{key:'Enter',code:'Enter',bubbles:true}));setTimeout(()=>{const r=el.getBoundingClientRect();const bs=[...document.querySelectorAll('button,input[type=submit],a')].filter(vis).filter(b=>!/filter|zurück|reset/i.test((b.innerText||'')+(b.value||'')));bs.sort((a,b)=>{const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();return Math.hypot(A.left-r.right,A.top-r.top)-Math.hypot(B.left-r.right,B.top-r.top)});bs[0]?.click();},500);})()">
-      2. Android-Filter ausführen
-    </a>
+  <p>
+    2. Danach das gespeicherte Chrome-Lesezeichen
+    <strong>TC Brunn Filter</strong> ausführen.
+  </p>
 
-    <p>
-      Hinweis: Falls Schritt 2 aus Chrome heraus nicht direkt funktioniert, den zweiten Link zusätzlich als Lesezeichen speichern und nach Schritt 1 als Lesezeichen ausführen.
-    </p>
-  </section>
+  <p>Falls du es neu anlegen musst: Diesen Code als Lesezeichen-Adresse speichern:</p>
+
+  <code id="bm">javascript:(()=>{const q='TC Brunn/Geb';const vis=e=>!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length);const inputs=[...document.querySelectorAll('input')].filter(vis);const el=inputs.find(i=>/such|search/i.test((i.placeholder||'')+(i.name||'')+(i.id||'')+(i.className||'')))||inputs[0];if(!el){alert('Suchfeld nicht gefunden');return}el.focus();el.value=q;['input','change','keyup'].forEach(t=>el.dispatchEvent(new Event(t,{bubbles:true})));el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true}));el.dispatchEvent(new KeyboardEvent('keyup',{key:'Enter',code:'Enter',bubbles:true}));setTimeout(()=>{const r=el.getBoundingClientRect();const bs=[...document.querySelectorAll('button,input[type=submit],a')].filter(vis).filter(b=>!/filter|zurück|reset/i.test((b.innerText||'')+(b.value||'')));bs.sort((a,b)=>{const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();return Math.hypot(A.left-r.right,A.top-r.top)-Math.hypot(B.left-r.right,B.top-r.top)});bs[0]?.click();},500);})()</code>
+
+  <button onclick="navigator.clipboard.writeText(document.getElementById('bm').innerText)">
+    Bookmarklet-Code kopieren
+  </button>
+</section>
 
 </body>
 </html>
