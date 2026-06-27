@@ -8,7 +8,7 @@
     body { font-family: system-ui, sans-serif; max-width: 650px; margin: 0 auto; padding: 2rem; line-height: 1.5; }
     section { margin-bottom: 2.5rem; }
     a.button {
-      display: block; margin: .8rem 0; padding: 1rem 1.2rem;
+      display: block; box-sizing: border-box; margin: .8rem 0; padding: 1rem 1.2rem;
       border: 1px solid #ccc; border-radius: 12px;
       text-decoration: none; color: black; font-size: 1.1rem;
       background: #f6f6f6; width: 100%; text-align: left;
@@ -21,8 +21,11 @@
 
 <section>
   <h2>Windows</h2>
-  <p>Unter Windows funktioniert der Aufruf mit Tampermonkey automatisch.</p>
-  <a class="button" href="https://www.noetv.at/rangliste/itn#tcbrunn">Windows</a>
+  <p>Einmalig das Tampermonkey-Skript installieren oder aktualisieren:</p>
+  <a class="button" href="https://raw.githubusercontent.com/oureal/ITN-tcbrunn/main/tcbrunn.user.js">1. TC-Brunn-Filter installieren</a>
+
+  <p>Danach öffnet dieser Link die Rangliste und filtert sie automatisch nach <strong>TC Brunn/Geb</strong>:</p>
+  <a class="button" href="https://www.noetv.at/rangliste/itn#tcbrunn">2. Gefilterte ITN-Rangliste öffnen</a>
 </section>
 
 </body>
