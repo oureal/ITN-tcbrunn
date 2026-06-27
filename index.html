@@ -13,6 +13,11 @@
       text-decoration: none; color: black; font-size: 1.1rem;
       background: #f6f6f6; width: 100%; text-align: left;
     }
+    .hint {
+      padding: 1rem;
+      border-left: 4px solid #777;
+      background: #f6f6f6;
+    }
   </style>
 </head>
 <body>
@@ -20,12 +25,19 @@
 <h1>TC Brunn ITN-Rangliste</h1>
 
 <section>
-  <h2>Windows</h2>
-  <p>Einmalig das Tampermonkey-Skript installieren oder aktualisieren:</p>
-  <a class="button" href="https://raw.githubusercontent.com/oureal/ITN-tcbrunn/main/tcbrunn.user.js">1. TC-Brunn-Filter installieren</a>
+  <h2>Windows – ohne Erweiterung</h2>
 
-  <p>Danach öffnet dieser Link die Rangliste und filtert sie automatisch nach <strong>TC Brunn/Geb</strong>:</p>
-  <a class="button" href="https://www.noetv.at/rangliste/itn#tcbrunn">2. Gefilterte ITN-Rangliste öffnen</a>
+  <h3>Einmalig einrichten</h3>
+  <p>Ziehe die folgende Schaltfläche mit der Maus in die Lesezeichenleiste deines Browsers:</p>
+  <a class="button" href="javascript:(()=>{const i=document.querySelector('#rankingkeyword'),b=document.querySelector('.btnfiltersubmit-ranking');if(!i||!b){alert('Bitte zuerst die NÖTV-ITN-Rangliste vollständig öffnen.');return}i.value='TC Brunn/Geb';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new Event('change',{bubbles:true}));b.click()})()">TC Brunn filtern</a>
+
+  <p class="hint">Falls die Lesezeichenleiste nicht sichtbar ist, drücke unter Windows <strong>Strg + Umschalt + B</strong>.</p>
+
+  <h3>Danach verwenden</h3>
+  <ol>
+    <li><a href="https://www.noetv.at/rangliste/itn">NÖTV-ITN-Rangliste öffnen</a>.</li>
+    <li>In der Lesezeichenleiste auf <strong>TC Brunn filtern</strong> klicken.</li>
+  </ol>
 </section>
 
 </body>
